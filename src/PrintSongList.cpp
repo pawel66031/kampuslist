@@ -1,6 +1,6 @@
-#include "PrintSongList.h"
+#include "PrintSongList.hpp"
 
-std::string PrintSongList::printSongList(std::chrono::system_clock::time_point dateTime = std::chrono::system_clock::now()){
+std::string PrintSongList::printSongList(std::chrono::system_clock::time_point dateTime){
     std::time_t getTime = std::chrono::system_clock::to_time_t(dateTime);
     struct tm *parts = std::localtime(&getTime);
 

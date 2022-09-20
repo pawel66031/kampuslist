@@ -3,7 +3,7 @@
 
 class ArgumentHandler{
 public:
-    static bool ReadArguments(char* arguments[]);
+    static bool ReadArguments(int size, char* arguments[]);
 
 };
 

@@ -12,7 +12,10 @@
 #include <iostream>
 #include <locale>
 
-#include "src/ArgumentsHandler.h"
+// #include <wx-3.0/wx/wx.h>
+
+#include "src/gui/Window.hpp"
+#include "src/ArgumentsHandler.hpp"
 #include "Timer.hpp"
 
 #define API_WEB_PAGE "https://api.radiokampus.fm/playlista"
@@ -22,17 +25,22 @@ size_t writeFunction(void *ptr, size_t size, size_t nmemb, std::string* data) {
     return size * nmemb;
 }
 
-std::string UsageInfo(){
-	return 
-	"Usage: kampuslist [OPTIONS]\n"
-	"\n"
-	"-y\tDisplay track list played yesterday";
-}
+// std::string UsageInfo(){
+// 	return 
+// 	"Usage: kampuslist [OPTIONS]\n"
+// 	"\n"
+// 	"-y\tDisplay track list played yesterday\n";
+// }
+
 
 int main(int argc, char* argv[]){
 	if (argc >= 2){
-		ArgumentHandler::ReadArguments(argv);
+		ArgumentHandler::ReadArguments(argc, argv);
 	}
+
+	// Window* window = new Window;
+	// window->OnInit();
+
 	struct curl_slist *headers = NULL;
 	headers = curl_slist_append(headers, "Accept: application/json");
 	headers = curl_slist_append(headers, "Origin: https://radiokampus.fm");
